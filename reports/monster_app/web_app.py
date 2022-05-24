@@ -1,7 +1,8 @@
-from flask import render_template,request, Flask
+from flask import render_template, request, Flask
 from flask_bootstrap import Bootstrap
 from  flask_wtf import FlaskForm
-from wtforms import (validators,SubmitField,SelectField,IntegerField)
+from sklearn.covariance import graphical_lasso
+from wtforms import (validators,SubmitField,SelectField,SelectMultipleField,IntegerField)
 import tensorflow as tf
 import keras
 from keras.models import load_model
@@ -13,17 +14,21 @@ app.config['SECRET_KEY'] = 'NeOoET9Upvp76fobDtppZ8XzIpzEb3sk'
 
 Bootstrap(app)
 
-# load keras model
-model = keras.models.load_model('../../models/monster_generator.h5')
+def load_keras_model():
+    """load pretrained keras model """ 
+    global model
+    model = keras.models.load_model('models\monster_generator.h5')
+
+load_keras_model()
 
 
 class MonsterForm(FlaskForm):
     """User entry form for entering specifics for monster generation"""
     
-    challange = IntegerField("Enter average level for 4-player party", validators=[validators.InputRequired(), 
+    challenge = IntegerField("Enter average level for 4-player party", validators=[validators.InputRequired(), 
                                                                                    validators.NumberRange(min=1,max=20, 
                                                                                                           message='Party level must be between 1 and 20')])
-    environment = SelectField("Enter desired monster environment", validators=[validators.InputRequired()], choices=  ['Arctic', 'Coastal', 'Desert', 'Forest', 'Grassland', 'Hill', 'Mountain', 'NA', 'Swamp', 'Underdark', 'Underwater', 'Urban'])
+    environment = SelectMultipleField("Enter desired monster environment", validators=[validators.InputRequired()], choices=  ['Arctic', 'Coastal', 'Desert', 'Forest', 'Grassland', 'Hill', 'Mountain', 'NA', 'Swamp', 'Underdark', 'Underwater', 'Urban'])
 
     monster_type = SelectField("Enter desired monster type", validators=[validators.InputRequired()], choices = ['beast', 'dragon', 'humanoid', 'monstrosity', 'fiend', 'undead', 'elemental',' construct', 'swarm', 'giant', 'plant', 'abberation', 'fey', 'celestial', 'ooze'])
     
@@ -34,7 +39,6 @@ class MonsterForm(FlaskForm):
     submit = SubmitField("Enter")
 
 
-
 # define a predict function as an endpoint
 @app.route("/", methods=['GET', 'POST'])
 
@@ -42,11 +46,22 @@ def home():
     """Home page of app with form"""
     # Create form
     
-    form = MonsterForm()
-    message = ""
+    form = MonsterForm(request.form)
     
     # Send template information to index.html
+
+    if request.method == 'POST' and form.validate():
+        #extract information
+        challenge = int(request.form['challenge'])
+        environment = request.form['environment']
+        monster_type = request.form['monster_type']
+        monster_alignment = request.form ['monster_alignment']
+        difficulty = request.form['difficulty']
+        return render_template('')
+
     return render_template('index.html', form=form)
+
+
 
 @app.errorhandler(404)
 def page_not_found(e):
