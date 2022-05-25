@@ -10,7 +10,7 @@
 
 
 {% block title %}
-Best Movie Actors
+Monster Generator
 {% endblock %}
 
 
@@ -26,8 +26,8 @@ Best Movie Actors
 
       {{ wtf.quick_form(form) }}
 
-      <p class="pt-5"><strong>{{ message }}</strong></p>
-
+      <p class="pt-5"><strong>Prediction: {{result}}</strong></p>
+      <img src="{{ url_for('visualize') }}">
     </div>
   </div>
 </div>
