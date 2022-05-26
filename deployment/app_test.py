@@ -22,10 +22,11 @@ app = dash.Dash(
 
 model = keras.models.load_model('models\monster_generator.h5')
 
+
 #empty one-hot encoded arrays for the prediction
 environ = [0,0,0,0,0,0,0,0,0,0,0,0]
-type =  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-alignment = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+m_type =  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+m_alignment = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 dataframe_columns = ['Hit Points','Armor Class','Proficiency Bonus','STR','DEX','CON','WIS','INT','CHA', 'STR_SV','DEX_SV','CON_SV','WIS_SV','INT_SV','CHA_SV', 'Attack_Bonus','Average_Damage_per_Round','Legendary Actions', 'Damage Resistances', 'Damage Immunities', 'Condition Immunities', 'Damage Vulnerabilities', 'Legendary Resistance', 'Magic Resistance']
 
 
@@ -38,11 +39,12 @@ def create_prediction_array(level,size,environment,type,alignment,difficulty):
     All of these will be concatinated to form the final prediction array. 
     '''
     environ[environment] = 1
-    type[type] =1
-    alignment[alignment] = 1
-    challenge_r = [level + difficulty]
-    size_r= [size]
-    final_array = np.concatenate((challenge_r,size_r,environ,type,alignment))
+    m_type[type] = 1
+    m_alignment[alignment] = 1
+    challenge_r = level + difficulty
+    cs_array = [challenge_r,size]
+
+    final_array = np.concatenate((cs_array,environ,m_type,m_alignment))
     return final_array
 
 def prediction(array):
@@ -53,9 +55,9 @@ def prediction(array):
     
     return monster_df
 
+
 # build component parts
-stats_graph = dcc.Graph(id ="stats_graph", style ={"height":"500px"})
-SV_graph = dcc.Graph(id ="SV_graph", style ={"height":"500px"})
+
 HP_gauge =  daq.Gauge(showCurrentValue=True, value=400, label='Hit Points',
      max=1000, min=0)
 AC_gauge = daq.Gauge(showCurrentValue=True, value=15, label='Armor Class',
@@ -91,6 +93,9 @@ sidebar =  html.Div([
                     html.Label('Environment'),
                     dcc.Dropdown(
                         id = 'environment',
+                        value = 0,
+                        clearable=False,
+                        searchable=False,
                         options=[
                             {'label': "Arctic", 'value': 0},
                             {'label': "Coastal", 'value': 1},
@@ -107,6 +112,9 @@ sidebar =  html.Div([
                     html.Label('Monster Type'),
                     dcc.Dropdown(
                         id = 'type',
+                        value = 0,
+                        clearable=False,
+                        searchable=False,
                         options=[
                             {'label': "Beast", 'value': 0},
                             {'label': "Dragon", 'value': 1},
@@ -127,7 +135,10 @@ sidebar =  html.Div([
                     ),
                     html.Label('Alignment'),
                     dcc.Dropdown(
-                        id = "Alignment",
+                        id = "alignment",
+                        value = 0,
+                        clearable=False,
+                        searchable=False,
                         options=[
                             {'label': "Any Alignment", 'value': 0},
                             {'label': "Any Chaotic Alignment", 'value': 1},
@@ -163,8 +174,10 @@ sidebar =  html.Div([
 #Graph portion
 content = html.Div([                                   
                 dbc.Row([
-                    dbc.Col([stats_graph],md=2),
-                    dbc.Col([SV_graph],md=2),
+                    dbc.Col(children=[
+                        html.Div(id='stats_graph'),
+                        html.Div('Hello')
+                ]),
                          ]),
                 dbc.Row([
                     dbc.Col([HP_gauge],md=3),
@@ -175,7 +188,7 @@ content = html.Div([
 app.layout = html.Div([
                 #Header row that includes title and help button column              
                 dbc.Row([
-                    dbc.Col(html.H1('DnD Monster',
+                    dbc.Col(html.H1('DnD \onster',
                                     style={'textAlign': 'left',
                                            'font-size': 50}),
                             width={'size':10}),
@@ -192,8 +205,7 @@ app.layout = html.Div([
 ])
 
 @app.callback(
-            [Output(component_id='stats_graph', component_property='children'),
-             Output(component_id='SV_graph', component_property='children')],
+            Output(component_id='stats_graph', component_property='children'),
                 [Input(component_id="level-slider", component_property='value'),
                  Input(component_id='size', component_property='value'),
                  Input(component_id='environment', component_property='value'),
@@ -201,28 +213,19 @@ app.layout = html.Div([
                  Input(component_id='alignment', component_property='value'),
                  Input(component_id='difficulty', component_property='value')
                  ])
-def get_graph(level,size,environment,type,alignment,difficulty):
+def finish(level,size,environment,type,alignment,difficulty):
 
-    monster_df= prediction(
-        create_prediction_array(
-            level,
-            size,
-            environment,
-            type,
-            alignment,
-            difficulty))
+    final_array=create_prediction_array(level,size,environment,type,alignment,difficulty)
 
-    r = list(monster_df[3:9])
-    theta = list(monster_df.columns[3:9])
+    x_test = np.array([[17,  6,  0,  0,  0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 0,  0,  0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  0]])
 
-    #Radar graph stats
-    stats_graph = px.line_polar(monster_df, r=r, theta=theta, line_close=True)
-    stats_graph.update_traces(fill='toself')
+    #Model now works, need to get the final array to work with model
 
-    #Radar graph for saving throws
-    SV_graph = px.line_polar(monster_df, r=r, theta=theta, line_close=True)
-    SV_graph.update_traces(fill='toself')
-    return stats_graph,SV_graph
+    test=prediction(x_test)
+
+    one=test.loc[0,'Hit Points']
+
+    return 'You have slected"{}"'.format(one)
 
 if __name__ =='__main__':
     app.run_server(debug=False)

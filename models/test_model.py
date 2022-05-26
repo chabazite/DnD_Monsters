@@ -21,8 +21,6 @@ final_array = np.concatenate((challenge_r,size_r,environ,type,alignment))
 
 x_test = np.array([[17,  6,  0,  0,  0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 0,  0,  0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]])
 
-normalize(x_test)
-
 
 test = model.predict(x_test)
 test
