@@ -17,7 +17,7 @@ import dash_bootstrap_components as dbc
 
 app = dash.Dash(
     __name__,
-   external_stylesheets=[dbc.themes.SOLAR],
+   external_stylesheets=[dbc.themes.DARKLY],
 )
 
 model = keras.models.load_model('models\monster_generator.h5')
@@ -63,8 +63,11 @@ HP_gauge =  daq.Gauge(id = 'HP', showCurrentValue=True, label='Hit Points',
 AC_gauge = daq.Gauge(id = 'AC', showCurrentValue=True, label='Armor Class',
      max=30, min=0)
 AB_gauge = daq.Gauge(id = 'AB', showCurrentValue=True, label='Attack Bonus',
-     max=20, min=0)
+     max=25, min=0)
 Attack_gauge = daq.Thermometer(id = 'AD',showCurrentValue=True, label='Average Damage per Turn',height = 300, theme='dark',max=250, min=0)
+Legendary_Actions = daq.BooleanSwitch(id='leg_ac',disabled=True, label = 'Legendary Actions')
+Legendary_Resist = daq.BooleanSwitch(id='leg_res',disabled=True, label = 'Legendary Resistance')
+Magic_Resist = daq.BooleanSwitch(id='mag_res',disabled=True, label = 'Magic Resistance')
 
 
 app.title = "DnD Monster Generator"
@@ -72,13 +75,13 @@ server = app.server
 
 #generator questions for model
 sidebar =  html.Div([
-                html.H2("DnD Monster Generator", style={'textAlign': 'center',
-                                           'font-size': 30}),
+                html.H2("Monster Stat Block Generator", style={'textAlign': 'center','font-size': 30}),
                 html.Hr(),
                 html.Div([
-                    html.Label('4-Player Party Level'),
+                    html.H4('4-Player Party Level', style={'font-size': 20}),
                     dcc.Slider(1,20,1,value=10,id='level-slider'),
-                    html.Label('Monster Size'),
+                    html.Br(),
+                    html.H4('Monster Size', style={'font-size': 20}),
                     dcc.RadioItems(
                         id= 'size',
                        options=[
@@ -88,10 +91,11 @@ sidebar =  html.Div([
                            {'label': 'Large', 'value': 4},
                            {'label': 'Huge', 'value': 5},
                            {'label': 'Gargantuan', 'value': 6},
-                       ],
+                       ], style={'padding': 5}, labelStyle = {'padding':5},inline = True,
                        value=3
                     ),
-                    html.Label('Environment'),
+                    html.Br(),
+                    html.H4('Environment', style={'font-size': 20}),
                     dcc.Dropdown(
                         id = 'environment',
                         value=0,
@@ -110,7 +114,8 @@ sidebar =  html.Div([
                             {'label': "Underdark", 'value': 9 },          {'label': "Underwater", 'value': 10},
                             {'label': "Urban", 'value': 11},]
                     ),
-                    html.Label('Monster Type'),
+                    html.Br(),
+                    html.H4('Monster Type', style={'font-size': 20}),
                     dcc.Dropdown(
                         id = 'type',
                         value=0,
@@ -134,7 +139,8 @@ sidebar =  html.Div([
                             {'label': "Ooze", 'value': 14}
                             ]
                     ),
-                    html.Label('Alignment'),
+                    html.Br(),
+                    html.H4('Alignment', style={'font-size': 20}),
                     dcc.Dropdown(
                         id = "alignment",
                         value=0,
@@ -158,9 +164,9 @@ sidebar =  html.Div([
                         ]
                     ),
                     html.Br(),
-                    html.Label('Difficulty'),
+                    html.H4('Difficulty', style={'font-size': 20}),
                     dbc.RadioItems(
-                        id='difficulty',
+                        id='difficulty',style={'padding': 10},
                         options =[
                             {'label': "Easy", 'value': -5},
                             {'label': "Medium", 'value': 0},
@@ -170,7 +176,7 @@ sidebar =  html.Div([
                     value=0),
                 html.Br(),
                 ]),   
-            ])
+            ], style = {"padding":"2rem"})
 
 #Graph portion
 content = html.Div([                                   
@@ -187,28 +193,37 @@ content = html.Div([
 app.layout = html.Div([
                 #Header row that includes title and help button column              
                 dbc.Row([
-                    dbc.Col(html.H1('DnD Monster',
+                    dbc.Col(html.H1('Dungeons and Dragons',
                                     style={'textAlign': 'left',
                                            'font-size': 50}),
                             width={'size':10}),
                     dbc.Col(dbc.Button('Help', color='info',className='me-1'),
                     width={'size':2})
                 ]),
-                #Tab Row that allows us to change from WQ to Equipment
                 dbc.Row([
                     #Div surrounding both the graphs and sidebar 
                    dbc.Col(sidebar,width={'size':3}),
                    dbc.Col(content,width={'size':6}),
                    dbc.Col(
                        [dbc.Row([Attack_gauge]),
-                        dbc.Row(
-                            html.Table([
+                        html.Hr(),
+                        html.H3("Monster Traits", style={'textAlign': 'center'}),
+                        dbc.Row([
+                                dbc.Col(
+                               dbc.Table(html.Tbody([
                                 html.Tr([html.Td(['Damage Resistance: ']), html.Td(id='dam_res')]),
                                 html.Tr([html.Td(['Damage Immunities: ']), html.Td(id='dam_imm')]),
                                 html.Tr([html.Td(["Damage Vulnerabilities: "]), html.Td(id='dam_vul')]),
-                                html.Tr([html.Td(["Condition Immunities: "]), html.Td(id='cond_imm')])])
+                                html.Tr([html.Td(["Condition Immunities: "]), html.Td(id='cond_imm')])]),bordered=True, dark=True,hover=True,striped=True),width={"size": 6, "offset": 3}),
+                                dbc.Col()],
                        ),
-                        dbc.Row([html.Div(id='leg_ac'),html.Div(id='leg_res'),html.Div(id='mag_res')])], width={'size':3}
+                        dbc.Row([
+                            dbc.Col([Legendary_Actions]),
+                            dbc.Col([Legendary_Resist]),
+                            dbc.Col([Magic_Resist]),
+                         ]),
+                       ],
+                        width={'size':3}
                        )                                    
                 ]),
 ])
@@ -220,9 +235,9 @@ app.layout = html.Div([
              Output(component_id='AC', component_property='value'),
              Output(component_id='AD', component_property='value'),
              Output(component_id='AB', component_property='value'),
-             Output(component_id='leg_ac', component_property='value'),
-             Output(component_id='leg_res', component_property='value'),
-             Output(component_id='mag_res', component_property='value'),
+             Output(component_id='leg_ac', component_property='on'),
+             Output(component_id='leg_res', component_property='on'),
+             Output(component_id='mag_res', component_property='on'),
              Output(component_id='dam_res', component_property='children'),
              Output(component_id='dam_imm', component_property='children'),
              Output(component_id='dam_vul', component_property='children'),
@@ -247,12 +262,32 @@ def get_graph(level,size,environment,type,alignment,difficulty):
     #Radar graph stats
     stats_graph = px.line_polar(df, r='r', theta='theta', line_close=True)
     stats_graph.update_traces(fill='toself')
-    stats_graph.update_layout(polar=dict(radialaxis=dict(visible=True,range=[0,30])))
+    stats_graph.update_layout(
+        polar=dict(radialaxis=dict(visible=True,range=[0,30])),paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+                title = {
+            'text': "Monster Stats",
+            'y':0.9,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top'
+            },
+            title_font_color = 'white')
 
     #Radar graph for saving throws
     SV_graph = px.line_polar(df_sv, r='r', theta='theta', line_close=True)
     SV_graph.update_traces(fill='toself')
-    SV_graph.update_layout(polar=dict(radialaxis=dict(visible=True,range=[0,20])))
+    SV_graph.update_layout(
+        polar=dict(radialaxis=dict(visible=True,range=[0,20])),     paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)', 
+        title = {
+            'text': "Saving Throws",
+            'y':0.9,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top'
+            },
+        title_font_color = 'white')
 
     # stats
     hit_points = monster_df.loc[0,'Hit Points']
@@ -261,10 +296,20 @@ def get_graph(level,size,environment,type,alignment,difficulty):
     attack_bonus = monster_df.loc[0,'Attack_Bonus']
 
     #Check Marks
-    leg_actions = monster_df.loc[0,'Legendary Actions']
-    leg_resist = monster_df.loc[0,'Legendary Resistance']
-    mag_resist = monster_df.loc[0,'Magic Resistance']
+    if monster_df.loc[0,'Legendary Actions'] == 1:
+        leg_actions = True
+    else:
+        leg_actions = False
 
+    if monster_df.loc[0,'Legendary Resistance'] == 1:
+        leg_resist = True
+    else:
+        leg_resist = False
+    
+    if monster_df.loc[0,'Magic Resistance'] == 1:
+        mag_resist = True
+    else:
+        mag_resist = False
     #numbers
     dam_res = monster_df.loc[0,'Damage Resistances']
     dam_immun = monster_df.loc[0,'Damage Immunities']
@@ -274,4 +319,4 @@ def get_graph(level,size,environment,type,alignment,difficulty):
     return stats_graph,SV_graph,hit_points,armor_class,avg_damage, attack_bonus, leg_actions, leg_resist, mag_resist, dam_res, dam_immun, dam_vuln, cond_immun
 
 if __name__ =='__main__':
-    app.run_server(debug=False)
+    app.run_server(debug=True)
