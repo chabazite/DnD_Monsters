@@ -1,0 +1,16 @@
+
+{
+    "serviceName": "dnd-monsters",
+    "containers": {
+        "dnd-monster-container": {
+            "image": ":dnd-monsters.latest.1",
+            "ports": {
+                "5000": "HTTP"
+            }
+        }
+    },
+    "publicEndpoint": {
+        "containerName": "dnd-monster-container",
+        "containerPort": 5000
+    }
+}
