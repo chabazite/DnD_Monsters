@@ -3,7 +3,7 @@
     "serviceName": "dnd-monsters",
     "containers": {
         "dnd-monster-container": {
-            "image": ":dnd-monsters.latest.1",
+            "image": ":dnd-monsters.latest.2",
             "ports": {
                 "5000": "HTTP"
             }
