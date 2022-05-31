@@ -23,9 +23,7 @@ app = dash.Dash(
 model = keras.models.load_model('monster_generator.h5')
 
 #empty one-hot encoded arrays for the prediction
-environ = [0,0,0,0,0,0,0,0,0,0,0,0]
-m_type =  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-m_alignment = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
 dataframe_columns = ['Hit Points','Armor Class','Proficiency Bonus','STR','DEX','CON','WIS','INT','CHA', 'STR_SV','DEX_SV','CON_SV','WIS_SV','INT_SV','CHA_SV', 'Attack_Bonus','Average_Damage_per_Round','Legendary Actions', 'Damage Resistances', 'Damage Immunities', 'Condition Immunities', 'Damage Vulnerabilities', 'Legendary Resistance', 'Magic Resistance']
 
 
@@ -37,6 +35,10 @@ def create_prediction_array(level,size,environment,type,alignment,difficulty):
 
     All of these will be concatinated to form the final prediction array. 
     '''
+    environ = [0,0,0,0,0,0,0,0,0,0,0,0]
+    m_type =  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    m_alignment = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    
     environ[environment] = 1
     m_type[type] = 1
     m_alignment[alignment] = 1
