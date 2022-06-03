@@ -6,7 +6,7 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 import seaborn as sns
 
 
-model = keras.models.load_model('models\monster_generator.h5')
+model = keras.models.load_model('..\..\models\monster_generator.h5')
 
 
 def create_prediction_array(level,size,environment,type,alignment,difficulty):
