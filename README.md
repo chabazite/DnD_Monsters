@@ -109,7 +109,10 @@ Scrapping DnD Monsters for EDL and ML insights
  <details>
 <summary>Show/Hide</summary>
 <br>
-
+1. 
+2. 
+3. 
+4. 
 </details>
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
