@@ -22,12 +22,13 @@ Scrapping DnD Monsters for EDL and ML insights
 </details>
 
 
-Project Organization
-------------
+## Project Organization
+
 <details>
 <a name="File_Description"></a>
 <summary>Show/Hide</summary>
  <br>
+ ------------
     ├── LICENSE
     ├── .gitignore
     ├── README.md          <- The top-level README for developers using this project.
@@ -78,6 +79,7 @@ Project Organization
         │   └── test_model.py    
         │
         └── visualization  <- Scripts to create exploratory and results oriented visualizations
+--------
   </details>   
 
 ## Technologies Used:
@@ -108,7 +110,7 @@ Project Organization
  <a name="Future_Improvements"></a>
   
 #### Future Improvements
---------
+
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
 <p>README outline tailored from [awesomeahi95][]<p>
