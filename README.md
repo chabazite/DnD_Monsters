@@ -16,13 +16,13 @@ Project Organization
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
-    ├── deployment         <- 
-    │   ├── venv           <-  Virtual Environment for just app deployment
-    │   ├── app.py         <-
-    │   ├── monster_generator.h5         <-
-    │   ├── requirements.txt             <-
-    │   ├── Dockerfile     <- 
-    │   └── lc.json        <- 
+    ├── deployment         <- Folder that contains all deployment needs
+    │   ├── venv           <- Virtual Environment for just app deployment
+    │   ├── app.py         <- Dashboard used to show off the model
+    │   ├── monster_generator.h5         <- built final model
+    │   ├── requirements.txt             <- library requirements for app to run
+    │   ├── Dockerfile     <- containerize the app
+    │   └── lc.json        <- Used in AWS lightsail
     │
     ├── env                <- Virtual Environment for the project
     │
