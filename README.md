@@ -3,9 +3,31 @@ DnD_Monsters
 
 Scrapping DnD Monsters for EDL and ML insights
 
+## Business Case
+
+## Table of Contents
+<details open>
+  <summary>Show/Hide</summary>
+  <br>
+  
+1. [ File Descriptions ](#File_Description)
+2. [ Technologies Used ](#Technologies_Used)    
+3. [ Structure ](#Structure)
+4. [ Executive Summary ](#Executive_Summary)
+   * [ 1. Data Collection and Wrangling ](#Data_Collection_and_Wrangling)
+   * [ 2. Exploratory Data Analysis ](#Exploratory_Data_Analysis) 
+   * [ 3. Regression and Significance Testing ](#Regression_and_Significance_Test)
+   * [ 4. Evaluation ](#Evaluation)
+       * [ Future Improvements ](#Future_Improvements)
+</details>
+
+
 Project Organization
 ------------
-
+<details>
+<a name="File_Description"></a>
+<summary>Show/Hide</summary>
+ <br>
     ├── LICENSE
     ├── .gitignore
     ├── README.md          <- The top-level README for developers using this project.
@@ -56,10 +78,37 @@ Project Organization
         │   └── test_model.py    
         │
         └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    
+  </details>   
 
+## Technologies Used:
+<details>
+<a name="Technologies_Used"></a>
+<summary>Show/Hide</summary>
+<br>
 
+ </details>
 
+## Structure of Notebooks:
+<details>
+<a name="Structure"></a>
+<summary>Show/Hide</summary>
+<br>
+
+ </details>
+
+<a name="Evaluation"></a>
+### Evaluation:
+<details open>
+<summary>Show/Hide</summary>
+<br>
+ 
+ </details>
+  </details>
+
+ <a name="Future_Improvements"></a>
+  
+#### Future Improvements
 --------
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+<p>README outline tailored from [awesomeahi95][]<p>
