@@ -13,12 +13,8 @@ Scrapping DnD Monsters for EDL and ML insights
 1. [ File Descriptions ](#File_Description)
 2. [ Technologies Used ](#Technologies_Used)    
 3. [ Structure ](#Structure)
-4. [ Executive Summary ](#Executive_Summary)
-   * [ 1. Data Collection and Wrangling ](#Data_Collection_and_Wrangling)
-   * [ 2. Exploratory Data Analysis ](#Exploratory_Data_Analysis) 
-   * [ 3. Regression and Significance Testing ](#Regression_and_Significance_Test)
-   * [ 4. Evaluation ](#Evaluation)
-       * [ Future Improvements ](#Future_Improvements)
+4. [ Evaluation ](#Evaluation)
+5. [ Future Improvements ](#Future_Improvements)
 </details>
 
 
@@ -80,7 +76,7 @@ Scrapping DnD Monsters for EDL and ML insights
         │   └── test_model.py    
         │
         └── visualization  <- Scripts to create exploratory and results oriented visualizations
-     
+
 --------
   </details>   
 
