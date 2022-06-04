@@ -96,19 +96,21 @@ Scrapping DnD Monsters for EDL and ML insights
 
  </details>
 
+## Evaluation:
 <a name="Evaluation"></a>
-### Evaluation:
-<details open>
+<details>
 <summary>Show/Hide</summary>
 <br>
- 
- </details>
-  </details>
 
- <a name="Future_Improvements"></a>
+</details>
   
-#### Future Improvements
+## Future Improvements
+ <a name="Future_Improvements"></a>
+ <details>
+<summary>Show/Hide</summary>
+<br>
 
+</details>
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
 <p>README outline tailored from [awesomeahi95][]<p>
