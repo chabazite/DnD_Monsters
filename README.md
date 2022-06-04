@@ -29,6 +29,7 @@ Scrapping DnD Monsters for EDL and ML insights
 <summary>Show/Hide</summary>
  <br>
  ------------
+
     ├── LICENSE
     ├── .gitignore
     ├── README.md          <- The top-level README for developers using this project.
@@ -79,6 +80,7 @@ Scrapping DnD Monsters for EDL and ML insights
         │   └── test_model.py    
         │
         └── visualization  <- Scripts to create exploratory and results oriented visualizations
+     
 --------
   </details>   
 
