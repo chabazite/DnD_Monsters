@@ -99,21 +99,24 @@ To that end, this project focused on three major questions:
 <a name="Technologies_Used"></a>
 <summary>Show/Hide</summary>
 <br>
-AWS Lightsail
-Docker
-Python
-  Numpy
-  Pandas
-  Requests
-  Selenium
-  BeautifulSoup
-  RegEx
-  Matplotlib
-  Seaborn
-  Wordcloud
-  Scikit-learn
-  Tensorflow Keras
-  OS
+------------
+    ├──AWS Lightsail
+    ├──Docker
+    ├──Python
+        ├──Numpy
+        ├──Pandas
+        ├──OS
+        ├──Requests
+        ├──Selenium
+        ├──BeautifulSoup
+        ├──RegEx
+        ├──Matplotlib
+        ├──Seaborn
+        ├──Wordcloud
+        ├──Scikit-learn
+        └──Tensorflow Keras
+ 
+ ------------
  </details>
 
 ## Structure of Notebooks:
