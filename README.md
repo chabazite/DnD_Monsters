@@ -27,12 +27,13 @@ To that end, this project focused on three major questions:
 <details open>
   <summary>Show/Hide</summary>
   <br>
-  [here](https://medium.com/@Andrew-Ingalls/fish-food-analysis-part-3-dbcb66717477)
+ 
 1. [ File Descriptions ](#File_Description)
 2. [ Technologies Used ](#Technologies_Used)    
 3. [ Structure ](#Structure)
 4. [ Evaluation ](#Evaluation)
 5. [ Future Improvements ](#Future_Improvements)
+6. [here](https://medium.com/@Andrew-Ingalls/fish-food-analysis-part-3-dbcb66717477)
 </details>
 
 
