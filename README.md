@@ -140,25 +140,25 @@ To that end, this project focused on three major questions:
       * 1.1 Scraping DnDWiki using requests
       * 1.2 Testing Selenium on DnDBeyond
       * 1.3 Scraping SRC Monster names using Selenium
-      * 1.4 Use Monster Names to scrap SRC monster data
+      * 1.4 Use Monster Names to scrape SRC monster data
  2. Business Understanding
       * 2.1 Background on Challenge Rating
       * 2.2 Comparing 3 Monster Manual monsters using Challenge Rating equation
  3. Data Wrangling
       * 3.1 Basic Cleanup
-      * 3.2 Turn Challenge Rating into usable INT
+      * 3.2 Turn Challenge Rating into usable integer
       * 3.3 Create consolidated monster type column
       * 3.4 Check Missing Values
       * 3.5 Turn “list” values that are currently strings, into lists
-      * 3.6 Pull out numerical data from attack, spell attack an, save DC using RegEx
+      * 3.6 Pull out numerical data from attack, spell attack, and save DC using RegEx
       * 3.7 Create full Saving Throw features
       * 3.8 Dummy Variables for Environment, Type, Size, etc.
       * 3.9 Calculate Average Attack Damage
       * 3.10 Incorporate Reactions and Legendary Actions
       * 3.11 Count Immunities and Resistances
-      * 3.12 Pull out interesting Traits such as spell caster for analysis
+      * 3.12 Pull out interesting Traits such as spellcaster for analysis
  4. Exploratory Data Analysis
-      * 4.1 Insights into General Monster Statblocks
+      * 4.1 Insights into General Monster Stat blocks
       * 4.2 Diving Deeper into Categorical Variables: Environment, Size, Alignment, Type, and Challenge Rating
       * 4.3 Stats Block Correlations & More
       * 4.4 Bonus: WordClouds!
@@ -176,11 +176,9 @@ To that end, this project focused on three major questions:
 <br>
 This project was indeed successful in creating a minimum viable product (MVP) that can generate the basic stats of a monster given a few simple inputs! Check out the medium post <a href="https://medium.com/@Andrew-Ingalls/fish-food-analysis-part-3-dbcb66717477" target="_blank">here</a> as I go into further detail regarding the process and my answers for the questions in the <a href="#Business_Case">business case</a>.
 
-I was able to uncover high variance in some of the categorical variables such as monster type, Size, Alignment, and Environment, which led to a more robust predictive model. Sadely, the environment was the least impactful of these variables. I was also able to find strong correlations between the output variables like stats, saving throws, damage, hit points, and armor class. This was one of the major factors that led me to switch over to a Keras model in TensorFlow. The outputs are able to help inform each other, creating a more robust model over the simplistic regression models. In fact the accuracy went from around 60% to over 85% by switching over to the TensorFlow neural network.
+I was able to uncover high variance in some of the categorical variables such as monster type, size, alignment, and environment, which led to a more robust predictive model. Sadely, the environment was the least impactful of these variables. I was also able to find strong correlations between the output variables like stats, saving throws, damage, hit points, and armor class. This was one of the major factors that led me to switch over to a Keras model in TensorFlow. The outputs are able to help inform each other in a neural network, creating a more robust model over the simplistic regression models. In fact, the accuracy went from around 60% to over 85% by switching over to the TensorFlow neural network.
 
-Finally, I’m excited to say I was able to dockerize and deploy a basic app using Plotly’s Dash, which is housed on the Flask framework. This allowed me to send the model to other DMs for critiques and further testing! Here is a link to the app. 
-
-
+Finally, I’m excited to say I was able to dockerize and deploy a basic app using AWS Lightsail and Plotly’s Dash, which is housed on the Flask framework. This allowed me to send the model to other DMs for critiques and further testing! Here is a link to the a href="https://dnd-monsters.b5171qf35pc3s.us-west-2.cs.amazonlightsail.com/" target="_blank">app: DnD Monster Generator</a>. 
 
 </details>
   
