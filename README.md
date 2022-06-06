@@ -13,6 +13,7 @@ Luckly, Wizards of the Coast has always known this. Even in 3.5e, they provided 
 I don’t know that we will ever get to a place that is both simple and all-encompasing for monster creation. That is because, to be honest, a lot of balancing an encounter does fall onto the DM, and a lot of it isn’t even monster related. What kind of resources do the players have left for the day? Are there any environmental hazards in this fight? Is there a secondary or primary goal other than kill the monster that the party will focus on? Is there a single monster, a boss with minions, or several semi-boss level characters to worry about? Not to mention…the rolls, one good or bad roll on either side could mean a huge swing in the favor of the monster or the players. These questions and others will sway the battle difficulty without even considering the level of the monster. This is why encounter building is considered such a nuanced art for DMs.
 Frankly, I don’t know that it will ever be possible to create the perfect system for choosing monsters for players. There is so much variance just from table to table, that I believe you would have to restrict the game a considerable amount in order for something consistent to appear. And that certainly is not in the spirit of Dungeons and Dragons.
 With all that being said, I am still curious if there is an easier way for dungeons masters to create a monster stat block on the fly. One that may be more in line with the monsters from our manual. While it may not be perfect, it may eventually allow us to create something very quickly that we can then spend time tweaking and turning into a beautiful encounter. Rather than spending the time trying to create the monster itself.
+
 To that end, this project focused on three major questions:
 1. How different is the Challenge Rating when used to calculate the CR of Monster Manual Monsters?
 2. How does the monster’s non-stat oriented categories (type, environment, size, alignment) impact its stats?
@@ -98,7 +99,21 @@ To that end, this project focused on three major questions:
 <a name="Technologies_Used"></a>
 <summary>Show/Hide</summary>
 <br>
-
+AWS Lightsail
+Docker
+Python
+  Numpy
+  Pandas
+  Requests
+  Selenium
+  BeautifulSoup
+  RegEx
+  Matplotlib
+  Seaborn
+  Wordcloud
+  Scikit-learn
+  Tensorflow Keras
+  OS
  </details>
 
 ## Structure of Notebooks:
