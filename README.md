@@ -109,10 +109,14 @@ Scrapping DnD Monsters for EDL and ML insights
  <details>
 <summary>Show/Hide</summary>
 <br>
-1. 
-2. 
-3. 
-4. 
+While I was able to create a deployed app for our model, it’s far from complete. Moving forward there will need to be a lot more testing, refining, and features built out to make this a stable and usable app for Dungeon Masters. The first step will be, using this app, discussing with other Dungeon Masters how useful this tool is to them and what kind of improvements they would like to see. <br>
+From there, I can already see the following will need to be addressed:<br>
+1. Fine tunning model further. I would like the stats to reflect the monster type shape more consistently
+2. Finding a way to incorporate spells and spell damage into the inputs and/or outputs
+3. Allow for more variety in inputs (spellcaster, player character magic items, flying traits)
+4. Increase the number of traits available in output
+5. Upgrade the UI of the model 
+
 </details>
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
