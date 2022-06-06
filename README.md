@@ -38,7 +38,7 @@ To that end, this project focused on three major questions:
 <a name="File_Description"></a>
 <summary>Show/Hide</summary>
  <br>
---------
+
 
     ├── LICENSE
     ├── .gitignore
@@ -99,7 +99,8 @@ To that end, this project focused on three major questions:
 <a name="Technologies_Used"></a>
 <summary>Show/Hide</summary>
 <br>
-------------
+--------
+      
     ├──AWS Lightsail
     ├──Docker
     ├──Python
