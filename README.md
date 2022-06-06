@@ -178,7 +178,7 @@ This project was indeed successful in creating a minimum viable product (MVP) th
 
 I was able to uncover high variance in some of the categorical variables such as monster type, size, alignment, and environment, which led to a more robust predictive model. Sadely, the environment was the least impactful of these variables. I was also able to find strong correlations between the output variables like stats, saving throws, damage, hit points, and armor class. This was one of the major factors that led me to switch over to a Keras model in TensorFlow. The outputs are able to help inform each other in a neural network, creating a more robust model over the simplistic regression models. In fact, the accuracy went from around 60% to over 85% by switching over to the TensorFlow neural network.
 
-Finally, I’m excited to say I was able to dockerize and deploy a basic app using AWS Lightsail and Plotly’s Dash, which is housed on the Flask framework. This allowed me to send the model to other DMs for critiques and further testing! Here is a link to the a href="https://dnd-monsters.b5171qf35pc3s.us-west-2.cs.amazonlightsail.com/" target="_blank">app: DnD Monster Generator</a>. 
+Finally, I’m excited to say I was able to dockerize and deploy a basic app using AWS Lightsail and Plotly’s Dash, which is housed on the Flask framework. This allowed me to send the model to other DMs for critiques and further testing! Here is a link to the <a href="https://dnd-monsters.b5171qf35pc3s.us-west-2.cs.amazonlightsail.com/" target="_blank">app: DnD Monster Generator</a>. 
 
 </details>
   
