@@ -99,7 +99,7 @@ To that end, this project focused on three major questions:
 <a name="Technologies_Used"></a>
 <summary>Show/Hide</summary>
 <br>
---------
+
       
     ├──AWS Lightsail
     ├──Docker
@@ -125,6 +125,37 @@ To that end, this project focused on three major questions:
 <a name="Structure"></a>
 <summary>Show/Hide</summary>
 <br>
+
+ 1. Data Scraping	
+      * 1.1 Scraping DnDWiki using requests
+      * 1.2 Testing Selenium on DnDBeyond
+      * 1.3 Scraping SRC Monster names using Selenium
+      * 1.4 Use Monster Names to scrap SRC monster data
+ 2. Business Understanding
+      * 2.1 Background on Challenge Rating
+      * 2.2 Comparing 3 Monster Manual monsters using Challenge Rating equation
+ 3. Data Wrangling
+      * 3.1 Basic Cleanup
+      * 3.2 Turn Challenge Rating into usable INT
+      * 3.3 Create consolidated monster type column
+      * 3.4 Check Missing Values
+      * 3.5 Turn “list” values that are currently strings, into lists
+      * 3.6 Pull out numerical data from attack, spell attack an, save DC using RegEx
+      * 3.7 Create full Saving Throw features
+      * 3.8 Dummy Variables for Environment, Type, Size, etc.
+      * 3.9 Calculate Average Attack Damage
+      * 3.10 Incorperate Reactions and Legendary Actions
+      * 3.11 Count Immunities and Resistances
+      * 3.12 Pull out interesting Traits such as spell caster for analysis
+ 4. Exploratory Data Analysis
+      * 4.1 Insights into General Monster Statblocks
+      * 4.2 Diving Deeper into Categorical Variables: Environment, Size, Alignment, Type, and Challenge Rating
+      * 4.3 Stats Block Correlations & More
+      * 4.4 Bonus: WordClouds!
+ 5. Modeling
+      * 5.1 Scikit-Learn MultiOutputRegressor
+      * 5.2 TensorFlow Keras Sequential
+      
 
  </details>
 
