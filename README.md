@@ -28,6 +28,8 @@ To that end, this project focused on three major questions:
 2. How does the monster’s non-stat oriented categories (type, environment, size, alignment) impact its stats?
 3. Can we predict a monster stat block for inexperienced DMs that resembles SRC monsters?
 
+Check out my medium post <a href="https://medium.com/@Andrew-Ingalls/using-tensorflow-to-build-a-balanced-dnd-monster-generator-c942f4456626">here</a>
+
 ## Table of Contents
 <details open>
   <summary>Show/Hide</summary>
