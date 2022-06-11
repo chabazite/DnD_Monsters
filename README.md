@@ -174,7 +174,7 @@ To that end, this project focused on three major questions:
 <details>
 <summary>Show/Hide</summary>
 <br>
-This project was indeed successful in creating a minimum viable product (MVP) that can generate the basic stats of a monster given a few simple inputs! Check out the medium post <a href="https://medium.com/@Andrew-Ingalls/fish-food-analysis-part-3-dbcb66717477" target="_blank">here</a> as I go into further detail regarding the process and my answers for the questions in the <a href="#Business_Case">business case</a>.
+This project was indeed successful in creating a minimum viable product (MVP) that can generate the basic stats of a monster given a few simple inputs! Check out the medium post <a href="https://medium.com/@Andrew-Ingalls/using-tensorflow-to-build-a-balanced-dnd-monster-generator-c942f4456626" target="_blank">here</a> as I go into further detail regarding the process and my answers for the questions in the <a href="#Business_Case">business case</a>.
 
 I was able to uncover high variance in some of the categorical variables such as monster type, size, alignment, and environment, which led to a more robust predictive model. Sadely, the environment was the least impactful of these variables. I was also able to find strong correlations between the output variables like stats, saving throws, damage, hit points, and armor class. This was one of the major factors that led me to switch over to a Keras model in TensorFlow. The outputs are able to help inform each other in a neural network, creating a more robust model over the simplistic regression models. In fact, the accuracy went from around 60% to over 85% by switching over to the TensorFlow neural network.
 
