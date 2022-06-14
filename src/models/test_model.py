@@ -11,10 +11,24 @@ model = keras.models.load_model('..\..\models\monster_generator.h5')
 
 def create_prediction_array(level,size,environment,type,alignment,difficulty):
     '''
-    inputs are from the app. These inputs will "turn on" on of the one-hot encoded columns in the case of environment, type, alignment. For challenge rating it will take the party level and add the difficulty factor
-    size is a ordinal category from 1-6.
+    In the case of Environment, Type, and Alignment, one of the zeros in the lists created outside this function (examples below) will be exchanged for a one, based on the position number input. This translates to a feature column created through one-hot encoding.
+    
+    For challenge rating it will take the party level and add the difficulty factor
+    
+    Size is a ordinal category from 1-6.
 
-    All of these will be concatinated to form the final prediction array. 
+    All of these will be concatinated to form the final prediction array.
+
+    inputs:
+            level: .25 - 30 based on input from app. 
+            size: 1,2,3,4,5,6 based on input from the app
+            environment: input from app. converted into position number for list below.
+            type:input from app. converted into position number for list below.
+            alignment:input from app. converted into position number for list below.
+            difficulty: -5, 0, 5, 10 based on easy medium, hard, deadly input from app. 
+    outputs:
+            final_array: A combination of all inputs from the app the create a prediction input array to be placed into the monster generator model.
+
     '''
     environ[environment] = 1
     m_type[type] = 1
@@ -27,7 +41,7 @@ def create_prediction_array(level,size,environment,type,alignment,difficulty):
 
 
 
-
+#Example lists used for testing purposes
 environ = [0,0,0,0,0,0,0,0,0,0,0,0]
 m_type =  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 m_alignment = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]

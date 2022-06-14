@@ -18,8 +18,15 @@ class Request:
 
         def get_selenium(self, class_name):
                 '''
-                This is the fuction inputs a URL and will output a parse that is headless and also will
-                randomize the user. 
+                Inputs a URL, checks to make sure the page contains a certain class before proceeding, then parses the page and will output a XML data file. 
+
+                Arguments are used to help speed up multiple parsing and reduce computer usage.
+
+                input:
+                        url: taken from the Request class. The url to scrape.
+                        class_name: a class name, known to be on the page. The parser will wait until class name is found before parsing.
+                output: 
+                        page_html: XML page source data.
                 '''
                 software_names = [SoftwareName.CHROME.value]
                 operating_systems = [OperatingSystem.WINDOWS.value,
