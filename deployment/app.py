@@ -1,6 +1,4 @@
 import numpy as np
-#import tensorflow as tf
-import keras
 from keras.models import load_model
 #import the required libraries
 import dash
@@ -20,7 +18,7 @@ app = dash.Dash(
    external_stylesheets=[dbc.themes.DARKLY],
 )
 
-model = keras.models.load_model('monster_generator.h5')
+model = load_model('monster_generator.h5')
 
 #empty one-hot encoded arrays for the prediction
 
