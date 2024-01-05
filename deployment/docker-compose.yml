@@ -6,7 +6,7 @@ services:
 
     environment:
         - environment=local
-    command: ["gunicorn", "app:app", "-b", "0.0.0.0:80", "--timeout", "75", "--log-level", "info"]
+    command: ["gunicorn", "app:server", "-b", "0.0.0.0:80", "--timeout", "75", "--log-level", "info"]
 
 
     
