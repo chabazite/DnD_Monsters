@@ -202,5 +202,7 @@ From there, I can already see the following will need to be addressed:
 
 </details>
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+<p><small>Project structure based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+<p><small>CI/CD Deployment Resource for Heroku <a target="_blank" href="https://towardsdatascience.com/deploy-containerized-plotly-dash-app-to-heroku-with-ci-cd-f82ca833375c">Heroku Deployment Resouce</a>. </small></p>
+https://towardsdatascience.com/deploy-containerized-plotly-dash-app-to-heroku-with-ci-cd-f82ca833375c
 <p>README outline tailored from [awesomeahi95][]<p>
