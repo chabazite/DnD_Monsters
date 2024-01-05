@@ -13,9 +13,5 @@ COPY /app /usr/src/app/
 # Copying tests to app folder for running in workflow
 #COPY /tests /usr/src/app/
 
-# Per Heroku guidelines
-RUN adduser -D myuser
-USER myuser
-
 # For running on Heroku
 CMD gunicorn --bind 0.0.0.0:$PORT app:server
