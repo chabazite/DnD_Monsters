@@ -19,6 +19,10 @@ app = dash.Dash(
    external_stylesheets=[dbc.themes.DARKLY],
 )
 
+server = app.server
+
+app.title = "DnD Monster Generator"
+
 model = load_model('monster_generator.h5')
 
 #empty one-hot encoded arrays for the prediction
@@ -71,8 +75,7 @@ Legendary_Resist = daq.BooleanSwitch(id='leg_res',disabled=True, label = 'Legend
 Magic_Resist = daq.BooleanSwitch(id='mag_res',disabled=True, label = 'Magic Resistance')
 
 
-app.title = "DnD Monster Generator"
-server = app.server
+
 
 #generator questions for model
 sidebar =  html.Div([
@@ -329,4 +332,4 @@ def get_graph(level,size,environment,type,alignment,difficulty):
     return stats_graph,SV_graph,hit_points,armor_class,avg_damage, attack_bonus, leg_actions, leg_resist, mag_resist, dam_res, dam_immun, dam_vuln, cond_immun
 
 #if __name__ =='__main__':
-#    app.run_server(debug=True)
+#    app.run_server(debug=True)herokuherok
